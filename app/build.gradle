@@ -135,19 +135,19 @@ application {
     mainClass = 'automation.App'
 }
 
-// tasks.named('test') {
-//     useTestNG() // Ensure TestNG is used
-//     testLogging {
-//         events "passed", "skipped", "failed" // Log all events to the console
-//         showStandardStreams = true // Ensure standard output (System.out.println) is shown
-//     }
-//      finalizedBy allureReport // Run the allureReport task after tests
-// }
-
-tasks.withType(Test).configureEach {
-    useTestNG()
-    finalizedBy("allureReport")
+tasks.named('test') {
+    useTestNG() // Ensure TestNG is used
+    testLogging {
+        events "passed", "skipped", "failed" // Log all events to the console
+        showStandardStreams = true // Ensure standard output (System.out.println) is shown
+    }
+     finalizedBy allureReport // Run the allureReport task after tests
 }
+
+// tasks.withType(Test).configureEach {
+//     useTestNG()
+//     finalizedBy("allureReport")
+// }
 
 allure {
     version = '2.12.0'  // specify the version you want
