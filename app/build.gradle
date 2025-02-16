@@ -149,17 +149,19 @@ tasks.withType(Test).configureEach {
     finalizedBy("allureReport")
 }
 
+// allure {
+//     version = '2.12.0'  // specify the version you want
+//     autoconfigure = true  // Automatically configure the task for generating reports
+// }
+
 allure {
-    version = '2.12.0'  // specify the version you want
-    autoconfigure = true  // Automatically configure the task for generating reports
+    version = '2.12.0' // Use a stable version
+    autoconfigure = true
+    resultsDir = file("$buildDir/allure-results")
+    reportDir = file("$buildDir/allure-report")
 }
 
-// allure {
-//     version = '2.29.0' // Use a stable version
-//     autoconfigure = true
-//     resultsDir = file("$buildDir/allure-results")
-//     reportDir = file("$buildDir/allure-report")
-// }
+
 
 // // Generate Allure report after tests run
 // task allureReport(type: AllureReport) {
