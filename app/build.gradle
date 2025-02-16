@@ -141,6 +141,7 @@ tasks.named('test') {
         events "passed", "skipped", "failed" // Log all events to the console
         showStandardStreams = true // Ensure standard output (System.out.println) is shown
     }
+    systemProperty "allure.results.directory", "$buildDir/allure-results"
      finalizedBy allureReport // Run the allureReport task after tests
 }
 
