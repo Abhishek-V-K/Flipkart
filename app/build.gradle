@@ -157,7 +157,7 @@ tasks.withType(Test).configureEach {
 allure {
     version = '2.12.0' // Use a stable version
     autoconfigure = true
-    resultsDir = file("$buildDir/allure-results")
+    // resultsDir = file("$buildDir/allure-results")
     reportDir = file("$buildDir/allure-report")
 }
 
